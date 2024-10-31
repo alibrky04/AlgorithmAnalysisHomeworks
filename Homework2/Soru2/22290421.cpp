@@ -1,3 +1,5 @@
+// Ali Berkay Görgülü | 22290421
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -7,13 +9,13 @@ using namespace std;
 
 class Question2 {
 private:
-    vector<int> numbers;
-    int size, number;
-    vector<vector<int>> subArrays;
+    vector<int> numbers;              // Vector to hold the numbers read from the input file
+    int size, number;                 // `size` is the number of elements; `number` is used to read each element
+    vector<vector<int>> subArrays;    // 2D vector to hold subarrays created from `numbers`
 public:
-    void readFromFile();
-    void writeToFile();
-    void divideIntoSubArrays();
+    void readFromFile();              // Method to read numbers from a file
+    void writeToFile();               // Method to write subarrays to a file
+    void divideIntoSubArrays();       // Method to divide the numbers into subarrays
 };
 
 int main() {
@@ -37,6 +39,7 @@ void Question2::readFromFile()
 
     inputFile >> size;
 
+    // Read each number and add it to the `numbers` vector
     while (inputFile >> number) {
         numbers.push_back(number);
     }
@@ -56,7 +59,7 @@ void Question2::writeToFile()
             outputFile << subArrays[i][j];
             if (j < subArrays[i].size() - 1) { outputFile << " "; }
         }
-        outputFile << " *";
+        outputFile << " *"; // Marker indicating the end of the subarray
         if (i < subArrays.size() - 1) { outputFile << endl; }
     }
 }
@@ -71,6 +74,7 @@ void Question2::divideIntoSubArrays()
 
         subArray.push_back(starterNumber);
 
+        // Create subarrays by including numbers in descending order
         for (j = i + 1; numbers[j] < numbers[j - 1]; j++) {
             if (j == size) {break;}
             
