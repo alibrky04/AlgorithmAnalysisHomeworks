@@ -1,3 +1,5 @@
+// Ali Berkay Görgülü | 22290421
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -7,13 +9,13 @@ using namespace std;
 
 class Question3a {
 private:
-    vector<int> numbers;
-    int size, number;
-    vector<int> productArray;
+    vector<int> numbers;      // Stores numbers read from the input file
+    int size, number;         // `size` is the number of elements; `number` is used for reading each element
+    vector<int> productArray; // Stores the product of all elements except the current element
 public:
-    void readFromFile();
-    void writeToFile();
-    void findProductArray();
+    void readFromFile();      // Reads numbers from the file and populates `numbers`
+    void writeToFile();       // Writes the contents of `productArray` to an output file
+    void findProductArray();  // Calculates the product array based on `numbers`
 };
 
 int main() {
@@ -37,6 +39,7 @@ void Question3a::readFromFile()
 
     inputFile >> size;
 
+    // Read each number and add to `numbers` vector
     while (inputFile >> number) {
         numbers.push_back(number);
     }
@@ -51,6 +54,7 @@ void Question3a::writeToFile()
         return;
     }
 
+    // Write each element of `productArray` to the file
     for (int i = 0; i < productArray.size(); ++i) {
         outputFile << productArray[i];
         if (i < productArray.size() - 1) {
@@ -65,11 +69,10 @@ void Question3a::findProductArray()
     {
         int product = 1;
 
-        for (int k = 0; k < size; k++)
-        {
-            product *= numbers[k];
+        for (int k = 0; k < size; k++) {
+            if (k != i) { product *= numbers[k]; } // Skip the current element
         }
 
-        productArray.push_back(product/numbers[i]);
+        productArray.push_back(product);
     }
 }
