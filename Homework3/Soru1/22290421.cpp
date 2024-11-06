@@ -70,7 +70,6 @@ void Question1::writeToStream(ostream& outputStream)
         }
     }
 
-    if (!output.empty()) { output.pop_back(); }
     outputStream << output;
 }
 
