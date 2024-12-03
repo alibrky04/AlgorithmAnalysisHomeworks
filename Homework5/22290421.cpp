@@ -7,14 +7,22 @@
 
 using namespace std;
 
+typedef struct indexValue {
+    vector<int> isBigger;
+    vector<int> isSmaller;
+    int value = 0;
+};
+
 class Homework5 {
 private:
     int n = 0;
     int k = 0;
-    vector<int> myVector;
+    
+    vector<indexValue> myVector;
 public:
     void readInput();
     void writeOutput();
+    void initArray();
     void calculateAlgorithmn();
 };
 
@@ -22,6 +30,8 @@ int main() {
     Homework5 homework5;
 
     homework5.readInput();
+    homework5.initArray();
+    homework5.calculateAlgorithmn();
     homework5.writeOutput();
 
     return 0;
@@ -37,13 +47,16 @@ void Homework5::readInput()
         if (n <= 0 || floor(n) != n)
             cout << "The length of the array must be a positive integer" << endl;
     } while (n <= 0 || floor(n) != n);
-
-    myVector.insert(myVector.end(), n, 0);
 }
 
 void Homework5::writeOutput()
 {
     cout << "k: " << k;
+}
+
+void Homework5::initArray()
+{
+
 }
 
 void Homework5::calculateAlgorithmn()
