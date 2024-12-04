@@ -3,35 +3,28 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <climits>
+#include <functional>
 
 using namespace std;
-
-typedef struct indexValue {
-    vector<int> isBigger;
-    vector<int> isSmaller;
-    int value = 0;
-};
 
 class Homework5 {
 private:
     int n = 0;
     int k = 0;
     
-    vector<indexValue> myVector;
+    vector<int> myVector;
 public:
     void readInput();
     void writeOutput();
-    void initArray();
-    void calculateAlgorithmn();
+    void calculateAlgorithm();
+    bool satisfiedCondition();
 };
 
 int main() {
     Homework5 homework5;
 
     homework5.readInput();
-    homework5.initArray();
-    homework5.calculateAlgorithmn();
+    homework5.calculateAlgorithm();
     homework5.writeOutput();
 
     return 0;
@@ -39,9 +32,8 @@ int main() {
 
 void Homework5::readInput()
 {
-    do
-    {
-        cout << "Please enter the the length of the array: ";
+    do {
+        cout << "Please enter the length of the array: ";
         cin >> n;
 
         if (n <= 0 || floor(n) != n)
@@ -54,19 +46,12 @@ void Homework5::writeOutput()
     cout << "k: " << k;
 }
 
-void Homework5::initArray()
+void Homework5::calculateAlgorithm()
 {
-
+    
 }
 
-void Homework5::calculateAlgorithmn()
+bool Homework5::satisfiedCondition()
 {
-    /*
-    0 0 0
-    1 0 0
-    1 1 0
-    1 2 1
-    1 2 2
-    1 2 3
-    */
+    
 }
