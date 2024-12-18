@@ -72,7 +72,7 @@ void Question3b::findProductArray()
     // Fill the prefix array where each element is the product of all elements to its left
     for (int i = 1; i < size; i++) { prefix[i] = prefix[i - 1] * numbers[i - 1]; }
 
-     // Fill the suffix array where each element is the product of all elements to its right
+    // Fill the suffix array where each element is the product of all elements to its right
     for (int i = size - 2; i >= 0; i--) { suffix[i] = suffix[i + 1] * numbers[i + 1]; }
 
     // Calculate the final product array by multiplying prefix and suffix products for each index
